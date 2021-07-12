@@ -1,3 +1,106 @@
+body {
+    color: white;
+    margin: 0;
+}
+
 .hidden {
     display: none;
+}
+
+#background_img {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    min-width: 100%;
+    min-height: 100%;
+
+    z-index: -1;
+}
+
+#clock_content {
+    position: absolute;
+    top: 30%;
+    margin-top: -150px;
+    width: 100%;
+    text-align: center;
+}
+
+#clock {
+    font-size: 90px;
+    font-weight: 1000;
+    margin: 20px auto;
+}
+
+#question_name {
+    font-size: 40px;
+    font-weight: 1000;
+    margin: 0 auto;
+}
+
+#login-form,
+#greeting {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    font-size: 45px;
+}
+
+#login-form input {
+    border:0 solid black;
+    border-bottom: 10px solid white;
+    outline: none;
+    background: transparent;
+
+    width: 500px;
+    line-height: 50px;
+    margin-top: 80px;
+
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+#quote {
+    position: absolute;
+    bottom: 3%;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+#weather {
+    position: absolute;
+    right: 1%;
+    width: 100%;
+    text-align: right;
+    font-size: 20px;
+}
+
+#todo-form {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 45px;
+}
+
+#todo-form h4{
+    margin-bottom: 0;
+}
+
+#todo-form input {
+    border:0 solid black;
+    border-bottom: 10px solid white;
+    outline: none;
+    background: transparent;
+
+    width: 500px;
+    line-height: 50px;
+
+    color: white;
+    font-size: 25px;
+    text-align: center;
 }
