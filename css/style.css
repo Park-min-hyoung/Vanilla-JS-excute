@@ -20,20 +20,20 @@ body {
 
 #clock_content {
     position: absolute;
-    top: 30%;
+    top: 27.5%;
     margin-top: -150px;
     width: 100%;
     text-align: center;
 }
 
 #clock {
-    font-size: 90px;
+    font-size: 75px;
     font-weight: 1000;
     margin: 20px auto;
 }
 
 #question_name {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 1000;
     margin: 0 auto;
 }
@@ -41,15 +41,15 @@ body {
 #login-form,
 #greeting {
     position: absolute;
-    top: 40%;
+    top: 35%;
     width: 100%;
     text-align: center;
-    font-size: 45px;
+    font-size: 40px;
 }
 
 #login-form input {
     border:0 solid black;
-    border-bottom: 10px solid white;
+    border-bottom: 5px solid white;
     outline: none;
     background: transparent;
 
@@ -62,17 +62,9 @@ body {
     text-align: center;
 }
 
-#quote {
-    position: absolute;
-    bottom: 3%;
-    width: 100%;
-    text-align: center;
-    font-size: 30px;
-    font-family: 'Nanum Pen Script', cursive;
-}
-
 #weather {
     position: absolute;
+    top: 2%;
     right: 1%;
     width: 100%;
     text-align: right;
@@ -81,19 +73,19 @@ body {
 
 #todo-form {
     position: absolute;
-    top: 50%;
+    top: 40%;
     width: 100%;
     text-align: center;
-    font-size: 45px;
 }
 
 #todo-form h4{
-    margin-bottom: 0;
+    font-size: 40px;
+    margin-bottom: 15px;
 }
 
 #todo-form input {
     border:0 solid black;
-    border-bottom: 10px solid white;
+    border-bottom: 5px solid white;
     outline: none;
     background: transparent;
 
@@ -104,3 +96,59 @@ body {
     font-size: 25px;
     text-align: center;
 }
+
+#todo-form .fa-plus-square {
+    color: white;
+    font-size: 50px;
+    margin-left: 15px;
+}
+
+#todo-list {
+    list-style: none;
+    position: relative;
+    top: 600px;
+    width: 95%;
+    text-align: left;
+}
+
+#todo-list li {
+    border: 5px solid white;
+    font-size: 20px;
+    display: block;
+    width: 330px;
+    line-height: 35px;
+    margin: 15px auto;
+
+    border-radius: 5px;
+    background: white;
+    color: lightgray;
+}
+
+#todo-list span {
+    display: inline-block;
+    width: 260px;
+    margin-left: 20px;
+    font-weight: 1000;
+    color: black;
+}
+
+#todo-list div:first-child:hover {
+    color: red;
+}
+
+#todo-list div:last-child:hover {
+    color: orange;
+}
+
+#quote {
+    position: relative;
+    top: 630px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+/* 1. 완료한 것만 체크하도록 하고 잘못 체크됬으면 다시 체크 돌릴 수 있도록 구현
+2. 소스코드 정리
+3. 배포 */

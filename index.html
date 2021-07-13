@@ -8,10 +8,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
     <title>Momentum App</title>
 </head>
 <body>
+    <div id="weather">
+        <span></span><br>
+        <span></span>
+    </div>
+    
     <div id="clock_content">
         <h2 id="clock">00:00:00</h2>
         <h1 id="question_name">What's Your name?</h1>
@@ -27,16 +33,13 @@
 
     <form class="hidden" id="todo-form">
         <h4 id="record_todo">Record Your New ToDo</h4>
-        <input type="text" required />
+        <input type="text" maxlength="15" required />
+        <i class="fas fa-plus-square"></i>
     </form>
-    <ul id="todo-list"></ul>
+    <ul id="todo-list">
+    </ul>
 
     <div id="quote">
-        <span></span><br>
-        <span></span>
-    </div>
-
-    <div id="weather">
         <span></span><br>
         <span></span>
     </div>
