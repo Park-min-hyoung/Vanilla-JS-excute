@@ -4,20 +4,34 @@ const toDoInputIcon = toDoForm.querySelector("i");
 const toDoList = document.querySelector("#todo-list");
 
 const TODOS_KEY = "todos";
+const CHECKS_KEY = "checks";
+const CHECK = "todo_check";
+const CHECK_OK = "fas fa-check todo_check";
 
 let toDos = [];
+let check_arr = [];
 
 function saveToDos() {
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
-function checkList(event) {
-    const checks = toDoList.querySelectorAll("li div:first-child");
-    for (let i = 0; i < checks.length; i++) {
-        checks[i].style.color = "lightgray";
-    }
+function checkToDO(event) {
     const check = event.target;
-    check.style.color = "red";
+    const checks = check.parentElement;
+    const check_text = checks.querySelector("span").innerText;
+    const checkObj = {
+        text: check_text,
+        id: checks.id,
+    }
+
+    if(check.className === CHECK_OK) { // check 되있는 상태
+        check_arr = check_arr.filter((check_item) => check_item.id !== checks.id);
+    } else { // check 되지 않은 상태
+        check_arr.push(checkObj);
+    }
+    localStorage.setItem(CHECKS_KEY, JSON.stringify(check_arr));
+
+    check.classList.toggle(CHECK);
 }
 
 function deleteToDo(event) {
@@ -34,7 +48,7 @@ function paintToDo(newTodo) {
     const span = document.createElement("span");
     span.innerText = newTodo.text;
     const button = document.createElement("div");
-    check.addEventListener("click", checkList);
+    check.addEventListener("click", checkToDO);
     button.addEventListener("click", deleteToDo);
 
     check.setAttribute("class", "fas fa-check");
@@ -67,4 +81,19 @@ if (savedToDos !== null) {
     const parsedToDos = JSON.parse(savedToDos);
     toDos = parsedToDos;
     parsedToDos.forEach(paintToDo);
+}
+
+function classNamePlus(check) {
+    const li = document.getElementById(check.id);
+    const checkDiv = li.querySelector("div:first-child");
+
+    checkDiv.classList.toggle("todo_check");
+}
+
+const savedChecks = localStorage.getItem(CHECKS_KEY);
+
+if (savedChecks !== null) {
+    const parsedChecks = JSON.parse(savedChecks);
+    check_arr = parsedChecks;
+    parsedChecks.forEach(classNamePlus);
 }
