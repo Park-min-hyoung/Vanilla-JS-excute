@@ -2,6 +2,7 @@ const toDoForm = document.querySelector("#todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoInputIcon = toDoForm.querySelector("i");
 const toDoList = document.querySelector("#todo-list");
+const quoteInterval = document.querySelector("#quote");
 
 const TODOS_KEY = "todos";
 const CHECKS_KEY = "checks";
@@ -10,6 +11,20 @@ const CHECK_OK = "fas fa-check todo_check";
 
 let toDos = [];
 let check_arr = [];
+
+function quotoPush() {
+    quoteInterval.style.position = "relative";
+    quoteInterval.style.top = "600px";
+}
+
+function quotoPull() {
+    quoteInterval.style.position = "fixed";
+    quoteInterval.style.top = "90%";
+}
+
+function saveChecks() {
+    localStorage.setItem(CHECKS_KEY, JSON.stringify(check_arr));
+}
 
 function saveToDos() {
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
@@ -29,8 +44,8 @@ function checkToDO(event) {
     } else { // check 되지 않은 상태
         check_arr.push(checkObj);
     }
-    localStorage.setItem(CHECKS_KEY, JSON.stringify(check_arr));
-
+    
+    saveChecks();
     check.classList.toggle(CHECK);
 }
 
@@ -38,6 +53,12 @@ function deleteToDo(event) {
     const li = event.target.parentElement;
     li.remove();
     toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+    check_arr = check_arr.filter((check_item) => check_item.id !== li.id);
+    if(toDos.length < 5) {
+        quotoPull();
+    }
+
+    saveChecks();
     saveToDos();
 }
 
@@ -68,6 +89,10 @@ function handleToDoSubmit(event) {
         id: Date.now(),
     }
     toDos.push(neTodoObj);
+    if(toDos.length >= 5) {
+        quotoPush();
+    }
+
     paintToDo(neTodoObj);
     saveToDos();
 }
@@ -96,4 +121,11 @@ if (savedChecks !== null) {
     const parsedChecks = JSON.parse(savedChecks);
     check_arr = parsedChecks;
     parsedChecks.forEach(classNamePlus);
+}
+
+const quoteNum = toDos.length;
+if (quoteNum >= 5) {
+    quotoPush();
+} else {
+    quotoPull();
 }

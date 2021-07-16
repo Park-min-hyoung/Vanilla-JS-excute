@@ -145,8 +145,6 @@ body {
 }
 
 #quote {
-    position: relative;
-    top: 630px;
     width: 100%;
     text-align: center;
     font-size: 30px;
