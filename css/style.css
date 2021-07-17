@@ -117,7 +117,7 @@ body {
 
 #todo-list li {
     border: 5px solid white;
-    font-size: 25px;
+    font-size: 20px;
     display: block;
     width: 330px;
     line-height: 35px;
@@ -132,7 +132,7 @@ body {
     display: inline-block;
     width: 260px;
     margin-left: 20px;
-    font-weight: 700;
+    font-weight: 1000;
     color: black;
 }
 
@@ -157,7 +157,7 @@ body {
     }
 
     #todo-list li {
-        font-size: 20px;
+        font-size: 17px;
         width: 250px;
         line-height: 20px;
     }
