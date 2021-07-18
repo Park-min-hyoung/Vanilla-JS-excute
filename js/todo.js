@@ -88,13 +88,16 @@ function handleToDoSubmit(event) {
         text: newTodo,
         id: Date.now(),
     }
-    toDos.push(neTodoObj);
-    if(toDos.length >= 5) {
-        quotoPush();
-    }
 
-    paintToDo(neTodoObj);
-    saveToDos();
+    if (neTodoObj.text !== "") {
+        toDos.push(neTodoObj);
+        if(toDos.length >= 5) {
+            quotoPush();
+        }
+    
+        paintToDo(neTodoObj);
+        saveToDos();
+    }
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
