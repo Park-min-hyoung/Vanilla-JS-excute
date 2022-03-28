@@ -13,6 +13,9 @@ function localSaveToDos() {
 function deleteToDo(event) {
   const deleteLi = event.target.parentElement;
   deleteLi.remove();
+
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(deleteLi.id));
+  localSaveToDos();
 }
 
 function paintToDo(newToDo) {
