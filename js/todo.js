@@ -2,9 +2,9 @@ const toDoForm = document.querySelector("#todo-form");
 const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.querySelector("#todo-list");
 
-const TODOS_KEY = "toDos";
+let toDos = [];
 
-const toDos = [];
+const TODOS_KEY = "toDos";
 
 function localSaveToDos() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
@@ -43,6 +43,6 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 // program 시작, localstorage에 item 여부 확인
 const savedToDos = localStorage.getItem(TODOS_KEY);
 if (savedToDos !== null) {
-  const parsedToDos = JSON.parse(savedToDos);
-  parsedToDos.forEach((item) => console.log(item));
+  toDos = JSON.parse(savedToDos);
+  toDos.forEach(paintToDo);
 }
